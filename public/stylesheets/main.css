@@ -4,7 +4,7 @@ body{
     color: rgb(38, 38, 38);
    }
    
-   .login-page, .login {
+   .signup-page, .login, .login-page {
        width: 350px;
        overflow:hidden;
        border: 1px solid rgb(219, 219, 219);
@@ -16,8 +16,8 @@ body{
        margin-top: 0.75rem;
    }
    
-   .login-page{
-       margin-top:3rem;
+   .signup-page, .login-page{
+       margin-top: 3rem;
    }
    
    .login p{
@@ -29,8 +29,8 @@ body{
    }
    
    .login a{
-       text-decoration: none;
        color: rgb(0, 149, 246);
+       text-decoration: none;
    }
    
    .form{
@@ -38,12 +38,40 @@ body{
        width: 268px;
        margin:auto;
    }
-   
+
+   .line {
+    overflow: hidden;
+    text-align: center;
+    }
+    .line:before,
+    .line:after {
+        background-color: rgb(219, 219, 219);
+        content: "";
+        display: inline-block;
+        height: 1px;
+        position: relative;
+        vertical-align: middle;
+        width: 50%;
+    }
+    .line:before {
+        right: 0.5em;
+        margin-left: -50%;
+    }
+    .line:after {
+        left: 0.5em;
+        margin-right: -50%;
+    }
+
+    .line {
+        margin-top:0;
+        margin-bottom: 1rem;
+    }
+    
    .wordmark h1{
        height:51px;
        width: 175px;
        line-height: 51px;
-       background-image: url("../../logo/pn-ribbitwise-logo-black.png");
+       background-image: url("../logo/pn-ribbitwise-logo-black.png");
        background-size: contain;
        background-repeat: no-repeat;
        margin:auto;
@@ -85,6 +113,13 @@ body{
        border: 1px solid rgb(219, 219, 219);
    }
    
+   form input {
+       border-style:solid;
+       -webkit-appearance: none;
+   }
+
+   
+   
    .login-form{
        display:none;
    }
@@ -101,6 +136,7 @@ body{
        border-radius: 4px;
        border:none;
        cursor: pointer;
+       margin-bottom:0.5rem !important;
    }
    
    p {
@@ -111,6 +147,28 @@ body{
        text-align: center;
        padding: 0 6px;
    }
+
+   .terms a{
+       text-decoration: none;
+       color:rgb(142, 142, 142);
+       font-weight: 600;
+   }
+
+   p .sideline{
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 1px solid #000; 
+    line-height: 0.1em;
+    margin: 10px 0 20px; 
+    border:1px solid red !important;
+   }
+
+  
+   p .sideline span{
+    background:#fff; 
+    padding:0 10px; 
+   }
+   
    
    .footer {
        margin:auto;
@@ -124,4 +182,12 @@ body{
    
    .footer p {
        display:inline;
+   }
+
+   input[type=password]{
+       margin-bottom:1rem;
+   }
+
+   .login-page {
+       padding-bottom: 2rem;
    }
