@@ -9,5 +9,10 @@ router.get('/', (req, res) => {
     res.render('registers/index')
 })
 
+router.post('/', (req, res) => {
+     
+})
+
+
 module.exports = router
 
