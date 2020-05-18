@@ -63,6 +63,7 @@ app.get('/register', checkNotAuthenticated, (req, res) => {
     res.render('register.ejs')
 })
 
+/*
 app.post('/register', checkNotAuthenticated, async (req, res) => {
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 10)
@@ -78,6 +79,7 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
     }
     console.log(users)
 })
+*/
 
 const mongoose = require('mongoose')
 mongoose.connect(process.env.DATABASE_URL, {
