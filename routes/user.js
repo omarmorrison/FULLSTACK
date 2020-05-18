@@ -1,9 +1,20 @@
 const express = require('express')
 const router = express.Router()
 
+
+// All Users
 router.get('/', (req, res) => {
-    res.render('index', {name: 'Omar'})
-    //res.redirect('logins')
+
+})
+
+// New Users
+router.get('/new', (req, res) => {
+
+})
+
+// Create User Route
+router.post('/', (req, res) => {
+
 })
 
 module.exports = router

@@ -5,10 +5,10 @@
             <h1></h1>
         </div>
 
-      <form class="register-form" action="POST">
-        <input type="text" placeholder="Mobile Number or Email"/>
-        <input type="password" placeholder="Password"/>
-        <button>Log In</button>
+      <form class="register-form" action="/login" method="POST">
+        <input type="email" id="email" name="email" required placeholder="Email"/>
+        <input type="password" id="password" name="password" required placeholder="Password"/>
+        <button type="submit">Log In</button>
       </form>
 
       <p class="terms">By continuing, you agree to ribbitwise's <a href="#">Conditions of Use</a> and <a href="#">Privacy Notice</a>.</p>
@@ -21,7 +21,7 @@
 </div>
 
 <div class="login">
-    <p>Don't have an account? <a href="../registers">Sign up</a></p>
+    <p>Don't have an account? <a href="../register">Register</a></p>
 </div>
 
 <div class="footer">

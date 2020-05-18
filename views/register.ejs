@@ -10,29 +10,19 @@
         </div>
 
 
-      <form class="register-form" action="POST">
-        <input type="text" id="name" name="name" placeholder="Full Name"/>
-        <input type="email" id="email" name="email" placeholder="Email"/>
-        <input type="password" id="password" name="password" placeholder="Password"/>
-        <button>Sign Up</button>
+      <form class="register-form" action="/register" method="POST">
+        <input type="text" id="name" name="name" required placeholder="Full Name"/>
+        <input type="email" id="email" name="email" required placeholder="Email"/>
+        <input type="password" id="password" name="password" required placeholder="Password"/>
+        <button type="submit">Register</button>
         <p class="message">By signing up, you agree to our Terms, Data Policy and Cookies Policy.</p>
       </form>
-
-
-
-      <form class="login-form" action="GET" style="border: 1px solid rgb(38, 38, 38);">
-        <input type="email" placeholder="Phone number, username, or email"/>
-        <input type="password" placeholder="password"/>
-        <button>login</button>
-        <p class="message">Not registered? <a href="#">Create an account</a></p>
-      </form>
-
 
     </div>
 </div>
 
 <div class="login">
-    <p>Have an account? <a href="../logins">Log in</a></p>
+    <p>Have an account? <a href="../login">Log in</a></p>
 </div>
 
 <div class="footer">
