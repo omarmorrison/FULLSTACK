@@ -26,8 +26,8 @@ initializePassport(
 const indexRouter = require('./routes/index')
 const authorRouter = require('./routes/authors')
 const bookRouter = require('./routes/books')
-//const registerRouter = require('./routes/register')
-//const loginRouter = require('./routes/login')
+const registerRouter = require('./routes/register')
+const loginRouter = require('./routes/login')
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
@@ -35,7 +35,7 @@ app.set('layout', 'layouts/layout')
 app.use(expressLayouts)
 app.use(express.static('public'))
 
-//app.use(bodyParser.urlencoded({ limit: '10mb', extended:  false}))
+app.use(bodyParser.urlencoded({ limit: '10mb', extended:  false}))
 app.use(express.urlencoded({ extended: false}))
 app.use(flash())
 app.use(session({
@@ -47,41 +47,26 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(methodOverride('_method'))
 
-app.get('/', checkAuthenticated, (req, res) => {
-    res.render('index.ejs', { name: req.user.name })
+app.get('/', (req, res) => {
+    res.send('Hey There')
 })
 
-app.get('/login', checkNotAuthenticated, (req, res) => {
-    res.render('login.ejs')
+app.get('/login', (req, res) => {
+    res.send('Omar')
 })
 
-app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/login',
-    failureFlash: true
-}))  
+app.post('/login', (req, res) => {
+    res.send('Login')
+});
 
-app.get('/register', checkNotAuthenticated, (req, res) => {
-    res.render('register.ejs')
-})
+app.get('/register', (req, res) => {
+    res.send('Registerd')
+});
 
-/*
-app.post('/register', checkNotAuthenticated, async (req, res) => {
-    try {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10)
-        users.push({
-            id: Date.now().toString(),
-            name: req.body.name,
-            email: req.body.email,
-            password: hashedPassword
-        })
-        res.redirect('/login')
-    } catch {
-        res.redirect('/register')
-    }
-    console.log(users)
+
+app.post('/register', (req, res) => {
+    res.send('Hey Omar')
 })
-*/
 
 const mongoose = require('mongoose')
 mongoose.connect(process.env.DATABASE_URL, {
@@ -93,30 +78,14 @@ db.once('open', () => console.log('Connected to Mongoose'))
 
 
 app.use('/', indexRouter)
-app.use('/authors', authorRouter)
-app.use('/books', bookRouter)
-//app.use('/register', registerRouter)
-//app.use('/login', loginRouter)
+
+app.use('/register', registerRouter)
+app.use('/login', loginRouter)
 
 app.delete('/logout', (req, res) => {
     req.logOut()
     res.redirect('/login')
 })
-
-function checkAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next()
-    }
-
-    res.redirect('/login')
-}
-
-function checkNotAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        return res.redirect('/')
-    }
-    next()
-}
 
 app.listen(process.env.PORT || 3000);
 
